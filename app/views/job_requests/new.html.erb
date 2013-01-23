@@ -1,0 +1,204 @@
+<script type="text/javascript">
+var interpreters_available = '<%= interpreters_available_job_requests_path( :format => :json ) %>';
+</script>
+<div class="row-fluid part1">
+	<div class="span2 thin_call">
+		<% if notice %>
+		<%= notice %>
+		<% end %>
+		<h4>Adding a new job</h4>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur, tortor at suscipit aliquam, felis nibh vehicula felis, id interdum metus erat et risus.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur, tortor at suscipit aliquam, felis nibh vehicula felis, id interdum metus erat et risus.
+			<br/><br/>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur, tortor at suscipit aliquam, felis nibh vehicula felis, id interdum metus erat et risus.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur, tortor at suscipit aliquam, felis nibh vehicula felis, id interdum metus erat et risus.
+			<br/><br/>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur, tortor at suscipit aliquam, felis nibh vehicula felis, id interdum metus erat et risus.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur, tortor at suscipit aliquam, felis nibh vehicula felis, id interdum metus erat et risus.
+			<br/><br/>
+		</p>
+	</div>
+	<div class="span10">
+		<%# debug @job_request.errors.messages %>
+		<%= form_for @job_request, :class => 'form-inline', :format=> :json, :remote => true do |f| %>		
+		<%= f.hidden_field :client_id %>
+		<legend class="first">New Job Request</legend>
+
+		<div class="row-fluid">
+			<div class="span2">
+				<%= f.label :name, 'Job Name' %>
+				<%= f.text_field :name, :class => 'span12' %>
+
+				<%= label :job_type, 'Job Type' %>
+				<%= select_tag(:job_type, options_for_select(@job_types.collect{ |t| t.title }), {:class => 'span12'}) %>
+				<label>Number of interpreters</label>
+				<input type="text" value="1" class="span12">
+			</div>
+			<div class="span5">
+				<label>Description/Notes</label>
+				<%= text_area_tag(:description, '', :class => 'span12', :style => 'height:148px') %>
+			</div>
+			<div class="span5 well">
+				<h1><span class="yellow_color num_aval_interp"></span><span class="aval_intep"></span></h1>
+				<p class="muted">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consectetur, tortor.
+					<a id="list_interps" href="#interp_listing" class="btn btn-info disabled" data-toggle="modal">List Available Interpreters</a>
+				</p>
+				
+			</div>
+		</div>
+
+		<div class="row-fluid">
+			<div class="span4">
+				<legend>Choose Time</legend>
+				<div class="row-fluid time_select">
+					<div class="span5">
+						<%= f.label :start_datetime, 'Date' %>
+						<%= f.text_field :start_datetime, :class=>"datepicker span12", :value => "2012-11-09" %>
+					</div>
+					<div class="span7">
+						<%= f.label :duration_in_hours, 'Duration (hours)' %>
+						<%= f.text_field :duration_in_hours, :class=>"span12", :placeholder => "1.5" %>
+					</div>
+				</div>
+				<div class="row-fluid time_select">
+					<div class="span12">	
+						<%= f.label :start_datetime, 'Start Time' %>
+						<%= f.time_select :start_datetime, :class=>"span12" %>
+					</div>
+				</div>		
+				<div class="row-fluid">
+					<div class="span12">	
+						<label>Recurring</label>
+						<%# select_tag(:recurring, options_for_select(@recurrings.collect{ |t| t.title }), {:class => 'span12'}) %>
+						<label class="checkbox inline">
+							<%= f.radio_button(:recurring, :none, :checked => "checked") %> One Time
+						</label>
+						<label class="checkbox inline">
+							<%= f.radio_button(:recurring, :daily) %> Daily
+						</label>
+						<label class="checkbox inline">
+							<%= f.radio_button(:recurring, :weekly) %> Weekly
+						</label>
+						<label class="checkbox inline">
+							<%= f.radio_button(:recurring, :monthly) %> Monthly
+						</label>
+					</div>
+				</div>	
+			</div>
+			<div class="span8">
+
+				<legend>Choose Location</legend>
+
+				<table class="table table-hover table-condensed selectable">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>City</th>
+							<th>Address</th>
+						</tr>
+					</thead>
+					<tbody id='scheduled-locations'>
+						<% @locations.each do |l| %>
+						<tr data-location="<%= l.to_json %>">
+							<td><%= l.name %></td>
+							<td><%= l.city %></td>
+							<td colspan="2"><%= l.street %> <%= l.street2 %> <%= l.room %></td>
+						</tr>
+						<% end %> 
+					</tbody>
+				</table>
+
+				<%= f.fields_for :physical_address do |p| %>
+				<div class="row-fluid">
+					<div class="span3">
+						<%= f.label :Name %>
+						<%= p.text_field :name, :class => 'span12' %>
+						<%= f.label :county %>
+						<%= p.text_field :county, :class => 'span12' %>
+					</div>
+
+					<div class="span3">
+						<%= f.label :street %>
+						<%= p.text_field :street, :class => 'span12' %>
+						<%= f.label :state %>
+						<%= p.text_field :state, :class => 'span12' %>
+					</div>
+					<div class="span3">
+						<%= f.label :street2 %>
+						<%= p.text_field :street2, :class => 'span12' %>
+						<%= f.label :zip %>
+						<%= p.text_field :zip, :class => 'span12' %>
+					</div>
+					<div class="span3">
+						<%= f.label :city %>
+						<%= p.text_field :city, :class => 'span12'%>
+						<label class="checkbox inline span12">
+							<input name="add_to_address_book" value="true" type="checkbox"> Add location to your address book
+						</label>
+					</div>
+
+				</div>
+				<% end %>
+
+			</div>
+		</div>
+
+		<button type="button" class="btn btn-small" data-toggle="collapse" data-target="#demo">Show Advanced Preferences</button>
+		<div id="demo" class="collapse out">
+			<legend>Advanced Preferences</legend>
+			<table class="prefTable">
+				<tr>
+					<td align="left">Gender</td>
+					<td align="left">Certifications</td>
+					
+				</tr>
+				<tr>
+					<td>
+						<%= select_tag(:gender, options_for_select(['Either','Male','Female'])) %>
+					</td>
+					<td class="pref_certs">
+						<% @certifications.each do |certs| %>
+						<label>
+							<input type="checkbox" value="<%= certs.id %>"> <%= certs.certification %>
+						</label>
+						<% end %>
+					</td>
+					
+				</tr>
+			</table>
+		</div>
+
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary">Send Request</button>
+		</div>
+
+		<% end %>
+
+	</div>
+</div>
+
+
+<!-- Modal -->
+<div id="interp_listing" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">List of available interpreters</h3>
+	</div>
+	<div id="interp_listing_body" class="modal-body">
+		<table class="interpListing">
+		
+		</table>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<button id="choose_interpreters" class="btn btn-primary">Choose Interpreters</button>
+	</div>
+</div>
+
+
+
+
+
+

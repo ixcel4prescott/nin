@@ -1,0 +1,74 @@
+<%= bootstrap_form_for(@interpreter) do |f| %>
+
+<div class="row-fluid">
+  <div class="span3">
+
+    <%= f.text_field :prefix_name %>
+    <%= f.text_field :first_name %>
+    <%= f.text_field :middle_name %>
+    <%= f.text_field :last_name %>
+    <%= f.text_field :postfix_name %>
+
+  </div>
+  <div class="span3">
+
+    <%= f.text_field :gender %>
+    <%= f.text_field :dob %>
+    <%= f.text_field :preferred_language %>
+
+  </div>
+  <div class="span3">
+
+    <% @interpreter.notes.each do |note| %>
+      <%= f.fields_for 'notes_attributes[]', note do |a| %>
+        <%= a.text_field :comment, :class => 'comment' %>
+        <%= a.hidden_field :id %>
+        <%= a.hidden_field :_destroy %>
+        <a class="btn btnDel" >Del</a>
+      <% end %>
+    <% end %>
+
+    <a id="btnAdd" class="btn btn-primary" >Add Comment</a>
+
+  </div>
+</div>
+
+<div class="form-actions">
+  <%= f.submit %>
+  <%= link_to 'Cancel', interpreters_path, :class => 'btn' %>
+</div>
+
+<% end %>
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+  $('#btnAdd').click(function() {
+    var num     = $('.comment').length;
+
+    $('#btnAdd').before(' \
+      <div class="control-group"> \
+      <label class="control-label" for="interpreter_notes_attributes__comment'+num+'">Comment</label> \
+      <div class="controls"> \
+      <input class="comment" id="interpreter_notes_attributes__comment'+num+'" name="interpreter[notes_attributes]['+num+'][comment]" size="30" type="text"> \
+      </div> \
+      </div>');
+  });
+
+  $('.btnDel').click(function() {
+
+    $('.comment:last').parent().parent().remove();
+    $('#btnAdd').before('<input id="" name="interpreter[notes_attributes]['+num+'][_destroy]" size="30" value="true" type="hidden"> \
+                    ');    // remove the last element
+    if (num == 0)
+      $('#btnDel').fadeOut();
+  });
+
+  if ($('.comment').length > 0)
+    $('#btnDel').fadeIn();
+});
+</script>
+

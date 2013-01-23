@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Gender:</b>
+  <%= @interpreter.gender %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @interpreter.prefix_name %> 
+  <%= @interpreter.first_name %> 
+  <%= @interpreter.middle_name %>
+  <%= @interpreter.last_name %> 
+  <em><%= @interpreter.postfix_name %> </em>
+</p>
+
+<p>
+  <b>Dob:</b>
+  <%= @interpreter.dob %>
+</p>
+
+<p>
+  <b>Preferred Language:</b>
+  <%= @interpreter.preferred_language %>
+</p>
+
+
+<%= link_to 'Edit', edit_interpreter_path(@interpreter) %> |
+<%= link_to 'Back', interpreters_path %>
+

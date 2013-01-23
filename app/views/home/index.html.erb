@@ -1,0 +1,42 @@
+ <div class="row-fluid">
+  <div class="span6">
+    <h3>Interpreter Scheduling</h3>
+    <hr/>
+  </div>
+  <div class="span6 offset4">
+    <h3>Interpreter Scheduling</h3>
+    <hr/>
+  </div>
+</div>
+
+<div class="row-fluid">
+  
+  <div class="span6 content_med">
+   <% @users.each do |user| %>
+   <div class="row-fluid">
+    <div class="span6">
+      NAME OF CLIENT
+    </div>
+    <div class="span3">
+      Status: CONFIRMED
+    </div>
+    
+  </div>
+  <div class="row-fluid">
+
+    <div class="span6">
+      <p>User: <%=link_to user.name, user %></p>
+    </div>
+    
+  </div>
+  <% end %>
+
+</div>
+
+<div class="span6 content_med">
+ <% @users.each do |user| %>
+ <p>User: <%=link_to user.name, user %></p>
+ <% end %>
+</div>
+
+</div>

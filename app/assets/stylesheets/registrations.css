@@ -1,0 +1,115 @@
+.field_error input, .field_error select { border: 1px solid red;}
+
+
+.bg-white { background: #fff; overflow: hidden; }
+
+body {padding-top: 40px;}
+
+.outter-container { padding: 0px;}
+
+.sidebar-nav { background: #f1f1f1; border-right: 1px solid #cfcfcf; padding: 20px; }
+.sidebar-nav a { color: #6db7dd; font-size: 12px;}
+.sidebar-nav a:hover { color: #3b7d9f; font-size: 12px; background-color: none;}
+.sidebar-nav .nav-header { color: #555555; font-size: 14px; border-bottom: dotted 1px #bbb; font-weight: normal; padding: 0px;  }
+.nav-list > li > a, .nav-list .nav-header {margin-left: 0px;}
+.nav-list { padding: 0px;}
+
+p.super-small { font-size: 10px; color: #b0b0b0; line-height: 13px;}
+
+h5 { color: #6db6dd; padding: 20px 0px 10px 0px; font-weight: normal; }
+
+input { font-size: 10px; font-weight: lighter;}
+
+label { color: #999; font-size: 11px; font-weight: lighter;}
+label a { color: #999; text-decoration: underline;} label a:hover { background: none; color: #999; }
+
+select,textarea,input[type="text"],input[type="password"],input[type="datetime"],input[type="datetime-local"],input[type="date"],input[type="month"],input[type="time"],input[type="week"],input[type="number"],input[type="email"],input[type="url"],input[type="search"],input[type="tel"],input[type="color"],.uneditable-input
+{font-size: 12px; color: #666666;}
+
+.fakeInput {
+	font-size: 12px; 
+	color: #ddd; 
+	border: 1px solid #ddd;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border linear .2s, box-shadow linear .2s;
+	-moz-transition: border linear .2s, box-shadow linear .2s;
+	-o-transition: border linear .2s, box-shadow linear .2s;
+	transition: border linear .2s, box-shadow linear .2s;
+
+	height: 20px;
+	padding: 4px 6px;
+	margin-bottom: 10px;
+
+
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+
+body 
+{
+  padding-top: 40px;
+  background-color: #f5f5f5;
+}
+
+.new_user, .form-signin, .edit_user {
+  max-width: 300px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+#error_explanation h2 {
+
+	font-size: 12px;
+	line-height: 14px;
+}
+
+#error_explanation {
+ font-size: 12px;
+ line-height: 14px;
+}
+
+
+.hero-unit {
+font-size: 15px;
+font-weight: 200;
+line-height: 21px;
+color: inherit;
+padding: 30px;
+}
+
+table.table tr:hover { background: inherit; }
+table.table td { border-top:none; }
+table.table th { font-weight: normal; }
+table.table td { padding: 8px 2px 8px 2px; }
+table.table p { font-size: 11px;}
+table.table select { width: 57px; font-size: 10px; padding: 2px;}
+.rates { font-size: 10px;}
+.rates { font-size: 10px;}
+
+.fit_fields select { width: 45%;}
+
+.btn {color: #777;}
+.btn-primary{color:#ffffff;}
+.btn-danger{color:#ffffff;}
+
+

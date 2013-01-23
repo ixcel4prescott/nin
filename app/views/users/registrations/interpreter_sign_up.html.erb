@@ -1,0 +1,570 @@
+<div class="row-fluid bg-white">
+
+  <div class="span1">
+  </div> 
+  <div class="span13">
+
+    <br/><br/>
+    <div class="hero-unit">
+      <h2>Interpreter Sign Up </h2>
+      <p>   </p>
+
+    </div>
+
+    <%= nested_form_for(@interpreter, :url => interpreter_create_account_path(resource_name)) do |p| %>
+
+
+    <% if @interpreter.errors.any? %>
+    <p id="error_explanation" class ="alert alert-error">
+      <strong><%= pluralize(@interpreter.errors.count, "error") %> prohibited this interpreter account from being created:</strong>
+      <br/>
+      <%= @interpreter.errors.full_messages.join('<br/> ').html_safe %>
+    </p>
+    <% end %>
+
+    <h5 style="padding-top:15px;">Step 1: Basic Information</h5>
+
+    <div class="row-fluid">
+
+      <div class="span10">
+        <div class="row-fluid">
+          <div class="span5">
+            <%= p.text_field :first_name, :placeholder =>"First name", :class => 'span15' %>
+          </div>
+          <div class="span1">
+            <%= p.text_field :middle_name, :placeholder =>"", :class => 'span15' %>
+          </div>
+          <div class="span5">
+            <%= p.text_field :last_name, :placeholder =>"Last name", :class => 'span15' %>
+          </div>
+          <div class="span2">
+            <%= p.text_field :gender, :placeholder =>"Gender", :class => 'span15' %>
+          </div>
+          <div class="span2">
+            <%= p.text_field :dob, :placeholder =>"DOB", :class => 'span15' %>
+          </div>
+        </div>
+
+      </div>
+      <div class="span5">
+        <p class="super-small">       </p>
+      </div>
+
+    </div>
+
+    <hr >
+
+    <h5>Step 2: Contact Information</h5>
+
+
+    <div class="row-fluid">
+
+      <%= p.fields_for :mailing_address do |b| %>
+      <div class="span10">
+        <div class="row-fluid">
+          <div class="span4">
+            <%= b.text_field :street, :placeholder =>"Mailing Address", :class => 'span15' %>
+          </div>
+          <div class="span3">
+            <%= b.text_field :street2, :placeholder =>"Street2", :class => 'span15' %>
+          </div>
+          <div class="span2">
+            <%= b.text_field :county, :placeholder =>"County", :class => 'span15' %>
+          </div>
+          <div class="span2">
+            <%= b.text_field :city, :placeholder =>"City", :class => 'span15'%>
+          </div>
+          <div class="span2">
+            <%= b.select :state, options_for_select(["State", "IN", "TX"]), { }, { :class => 'span15' } %>
+          </div>
+          <div class="span2">
+            <%= b.text_field :zip, :placeholder =>"Zip", :class => 'span15' %>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+      <div class="span5">
+        <p class="super-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie magna sed arcu dignissim gravida sit amet id odio. Sed tempor pellentesque nisi in semper. Morbi eu velit at nisi pulvinar cursus in id ligula.</p>
+      </div>
+
+    </div>
+
+    <div class="row-fluid">
+      <div class="span10">
+        <div class="row-fluid">
+          <div class="span5">
+            <%= p.text_field :miles_willing_to_travel, :placeholder =>"miles willing to travel", :class => 'span15' %>
+          </div>
+          <div class="span10" style="padding-top:5px;">
+            <label class="checkbox"><input type="checkbox" class="sameAsW" name="work_same_as_mailing" checked="checked"/> Work address is the same a mailing address</label>
+          </div>
+        </div>
+
+        <div class="row-fluid work-address-Wrap">
+         <%= p.fields_for :work_address do |w| %>
+         <div class="span4">
+          <%= w.text_field :street, :placeholder =>"Work Address", :class => 'span15' %>
+        </div>
+        <div class="span3">
+          <%= w.text_field :street2, :placeholder =>"Street2", :class => 'span15' %>
+        </div>
+        <div class="span2">
+          <%= w.text_field :county, :placeholder =>"County", :class => 'span15' %>
+        </div>
+        <div class="span2">
+          <%= w.text_field :city, :placeholder =>"City", :class => 'span15'%>
+        </div>
+        <div class="span2">
+          <%= w.select :state, options_for_select(["State", "IN", "TX"]), { }, { :class => 'span15' } %>
+        </div>
+        <div class="span2">
+          <%= w.text_field :zip, :placeholder =>"Zip", :class => 'span15' %>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+    <div class="span5">
+      <p class="super-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie magna sed arcu dignissim gravida sit amet id odio. Sed tempor pellentesque nisi in semper. Morbi eu velit at nisi pulvinar cursus in id ligula.</p>
+    </div>
+
+  </div>
+
+  <div class="row-fluid">
+
+    <div class="span10">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="fakeInput">Email</div>
+        </div>
+        <div class="span5" >
+          <div class="fakeInput">Account Email Address</div>
+        </div>
+        <div class="span7" >
+          <div class="fakeInput"><%= current_user.email %></div>
+        </div>
+      </div>
+
+      <%= p.fields_for :virtual_addresses do |c| %>
+      <div class="row-fluid">
+        <div class="span3">
+          <%= c.enum_select :contact_type, { }, { :class => 'span15' } %>
+        </div>
+        <div class="span5" >
+          <%= c.text_field :contact_label, :placeholder =>"label (i.e. work, home)", :class => 'span15'%>
+        </div>
+        <div class="span7" >
+          <%= c.text_field :contact_value, :placeholder =>"Address", :class => 'span15'%>
+        </div>
+      </div>
+      <% end %>
+
+      <%= p.link_to_add "+ Add additional virtual address", :virtual_addresses, :class => 'btn ', :id => "add_virtual_addresses_btn" %>
+
+    </div>
+    <div class="span5">
+      <p class="super-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie magna sed arcu dignissim gravida sit amet id odio. Sed tempor pellentesque nisi in semper. Morbi eu velit at nisi pulvinar cursus in id ligula.</p>
+    </div>
+
+  </div>
+
+  <hr >
+
+  <h5>Step 3: Certifications &amp; Skills</h5>
+
+  <div class="row-fluid">
+
+    <div class="span10">
+      <%= p.fields_for :interpreter_certifications do |d| %>
+      <div class="row-fluid">
+        <div class="span4">
+         <%= d.select :certification_id, options_for_select( @certifications.map{ |cert| [cert.name,cert.id] }), {}, :class => 'span15' %>
+
+       </div>
+       <div class="span5" >
+        <%= d.text_field :comment, :placeholder =>"Comment", :class => 'span15 interpreter_certifications_comment'%>
+      </div>
+      <div class="span4" >
+        <%= d.text_field :certifier, :placeholder =>"Certifier", :class => 'span15'%>
+      </div>
+      <div class="span2" >
+        <%= d.text_field :end_date, :placeholder =>"Expiration", :class => 'span15'%>
+      </div>
+    </div>
+    <% end %>
+
+    <%= p.link_to_add "+ Add Certification", :interpreter_certifications, :class => 'btn click ' %>
+    
+  </div>
+
+  <div class="span5">
+    <p class="super-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie magna sed arcu dignissim gravida sit amet id odio.</p>
+  </div>
+
+</div>
+
+<hr >
+
+<div class="row-fluid">
+
+  <div class="span10">
+    <%= p.fields_for :skills do |g| %>
+    <div class="row-fluid">
+      <div class="span3">
+        <%= g.enum_select :skill_type, { }, { :class => 'span15' } %>
+      </div>
+      <div class="span7" >
+        <%= g.text_field :where, :placeholder =>"Acquired where?", :class => 'span15'%>
+      </div>
+      <div class="span5" >
+        <%= g.text_field :experience, :placeholder =>"Experience", :class => 'span15 skills_experience'%>
+      </div>
+    </div>
+    <% end %>
+
+    <%= p.link_to_add "+ Add skill", :skills, :class => 'btn click ' %>
+    
+
+  </div>
+  <div class="span5">
+    <p class="super-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie magna sed arcu dignissim gravida sit amet id odio. Sed tempor </p>
+  </div>
+
+</div>
+
+<hr>
+
+<div class="row-fluid">
+
+  <div class="span10">
+    <div class="row-fluid">
+      <div class="span4">
+        <%= p.text_field :years_experience, :placeholder =>"Years experience", :class => 'span15' %>
+      </div>
+      <div class="span4">
+        <%= p.text_field :spoken_languages, :placeholder =>"Spoken languages ", :class => 'span15' %>
+      </div>
+      <div class="span4">
+        <%= p.text_field :written_languages, :placeholder =>"Written languages ", :class => 'span15' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="span5">
+    <p class="super-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie magna sed arcu dignissim gravida sit amet id odio. Sed tempor pellentesque nisi in semper. Morbi eu velit at nisi pulvinar cursus in id ligula.</p>
+  </div>
+</div>
+
+<hr>
+
+<h5>Step 4: Payment &amp; Method</h5>
+
+<div class="row-fluid">
+
+  <div class="span10">
+    <%= p.fields_for :payment_method do |e| %>
+    <div class="row-fluid">
+      <div class="span4">
+        <%= e.enum_select :payment_type, { }, { :class => 'span15 pm_select' } %>
+      </div>
+
+      <div class="span11 pm_check_checkbox" style="padding-top:5px;">
+        <label class="checkbox"><input type="checkbox" class="sameAsP" name="payment_same_as_mailing" checked="checked"/> Payment Address is the same a mailing address</label>
+      </div>
+
+      <div class="span4 pm_spans">
+        <%= e.text_field :bank_name, :placeholder =>"Bank name", :class => 'span15 pm_bank_name'%>
+        <%= e.text_field :paypal_account, :placeholder =>"Paypal account", :class => 'span15 pm_paypal_account'%>
+      </div>
+
+      <div class="span4">
+        <%= e.text_field :bank_account, :placeholder =>"Bank account", :class => 'span15 pm_bank_account'%>
+
+      </div>
+      <div class="span3">
+        <%= e.text_field :bank_routing, :placeholder =>"Bank routing", :class => 'span15 pm_bank_routing'%>
+      </div>
+    </div>
+
+    <%=   e.fields_for :mailing_address do |i| %>
+
+    <div class="row-fluid payment-address-Wrap">
+      <div class="span4">
+        <%= i.text_field :street, :placeholder =>"Payment Address", :class => 'span15' %>
+      </div>
+      <div class="span3">
+        <%= i.text_field :street2, :placeholder =>"Street2", :class => 'span15' %>
+      </div>
+      <div class="span2">
+        <%= i.text_field :county, :placeholder =>"County", :class => 'span15' %>
+      </div>
+      <div class="span2">
+        <%= i.text_field :city, :placeholder =>"City", :class => 'span15'%>
+      </div>
+      <div class="span2">
+        <%= i.select :state, options_for_select(["State", "IN", "TX"]), { }, { :class => 'span15' } %>
+      </div>
+      <div class="span2">
+        <%= i.text_field :zip, :placeholder =>"Zip", :class => 'span15' %>
+      </div>
+    </div>
+
+    <% end %>
+    <% end %>
+  </div>
+
+  <div class="span5">
+    <p class="super-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+  </div>
+</div>
+
+<hr>
+
+
+
+<h5>Step 7: insurance</h5>
+
+<div class="row-fluid">
+  <div class="span10">
+<%= p.fields_for :insurance do |is| %>
+
+<div class="row-fluid">
+  <div class="span5">
+    <%= is.text_field :carrier, :placeholder =>"Insurance carrier", :class => 'span15'%>
+  </div>
+
+  <div class="span5">
+    <%= is.text_field :account, :placeholder =>"Account", :class => 'span15'%>
+  </div>
+
+  <div class="span5">
+    <%= is.text_field :coverage, :placeholder =>"Coverage amount", :class => 'span15'%>
+  </div>
+</div>
+<% end %>
+
+<%= p.link_to_add "+ Add insurance", :insurance, :class => 'btn' %>
+  </div>
+  
+  <div class="span5">
+    <p class="super-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie magna sed arcu dignissim gravida sit amet id odio. Sed tempor pellentesque nisi in semper. Morbi eu velit at nisi pulvinar cursus in id ligula.</p>
+  </div>
+</div>
+
+<hr>
+
+<h5>Step 5.1: Rates &amp; Availability</h5>
+
+<div class="simple_pricing_plan">
+  <div class="row-fluid">
+    <div class="span10">
+
+
+
+      <div class="row-fluid">
+
+        <div class="span4" >
+          Normal hours 
+        </div>
+
+        <div class="span3" >
+          <input type="text" name="normal_hour_rate" placeholder="Rate ($35.00)" class="span15">
+        </div>
+
+        <div class="span4" >
+          <select name="[rates][normal][start]" class="span15">
+              <option value="0">12:00 AM</option>
+              <option value="1">1:00 &nbsp;AM</option>
+              <option value="2">2:00 &nbsp;AM</option>
+              <option value="3">3:00 &nbsp;AM</option>
+              <option value="4">4:00 &nbsp;AM</option>
+              <option value="5">5:00 &nbsp;AM</option>
+              <option value="6">6:00 &nbsp;AM</option>
+              <option value="7">7:00 &nbsp;AM</option>
+              <option value="8">8:00 &nbsp;AM</option>
+              <option value="9" selected="selected">9:00 &nbsp;AM</option>
+              <option value="10">10:00 AM</option>
+              <option value="11">11:00 AM</option>
+              <option value="12">12:00 PM</option>
+              <option value="13">1:00 &nbsp;PM</option>
+              <option value="14">2:00 &nbsp;PM</option>
+              <option value="15">3:00 &nbsp;PM</option>
+              <option value="16">4:00 &nbsp;PM</option>
+              <option value="17">5:00 &nbsp;PM</option>
+              <option value="18">6:00 &nbsp;PM</option>
+              <option value="19">7:00 &nbsp;PM</option>
+              <option value="20">8:00 &nbsp;PM</option>
+              <option value="21">9:00 &nbsp;PM</option>
+              <option value="22">10:00 PM</option>
+              <option value="23">11:00 PM</option>
+              <option value="24">----</option>
+          </select>
+        </div>
+
+        <div class="span4" >
+          <select name="[rates][normal][end]" class="span15">
+              <option value="0">12:00 AM</option>
+              <option value="1">1:00 &nbsp;AM</option>
+              <option value="2">2:00 &nbsp;AM</option>
+              <option value="3">3:00 &nbsp;AM</option>
+              <option value="4">4:00 &nbsp;AM</option>
+              <option value="5">5:00 &nbsp;AM</option>
+              <option value="6">6:00 &nbsp;AM</option>
+              <option value="7">7:00 &nbsp;AM</option>
+              <option value="8">8:00 &nbsp;AM</option>
+              <option value="9">9:00 &nbsp;AM</option>
+              <option value="10">10:00 AM</option>
+              <option value="11">11:00 AM</option>
+              <option value="12">12:00 PM</option>
+              <option value="13">1:00 &nbsp;PM</option>
+              <option value="14">2:00 &nbsp;PM</option>
+              <option value="15">3:00 &nbsp;PM</option>
+              <option value="16">4:00 &nbsp;PM</option>
+              <option value="17" selected="selected">5:00 &nbsp;PM</option>
+              <option value="18">6:00 &nbsp;PM</option>
+              <option value="19">7:00 &nbsp;PM</option>
+              <option value="20">8:00 &nbsp;PM</option>
+              <option value="21">9:00 &nbsp;PM</option>
+              <option value="22">10:00 PM</option>
+              <option value="23">11:00 PM</option>
+              <option value="24">----</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="row-fluid">
+
+        <div class="span4" >
+          After hours 
+        </div>
+
+        <div class="span3" >
+          <input type="text" name="after_hour_rate" placeholder="Rate ($35.00)" class="span15">
+        </div>
+
+        <div class="span8 fakeInput" >
+         Nights and weekends
+        </div>
+
+      </div>
+      
+      
+    </div>
+
+    <div class="span5">
+      <p class="super-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+      <p class="super-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie magna sed arcu dignissim gravida sit amet id odio. Sed tempor pellentesque nisi in semper. Morbi eu velit at nisi pulvinar cursus in id ligula.</p>
+      
+    </div>
+  </div>
+
+  <a href="javascript:void(0);" class="pricing_plan_click btn btn-mini" style="color: #444;"><i class="icon-list"></i> Switch to Advanced Pricing</a>
+</div>
+
+
+<%= p.fields_for :pricing_plan do |pp| %>
+<div class="advanced_pricing_plan">
+  <div class="row-fluid">
+
+    <div class="span10">
+
+      <div class="row-fluid">
+
+        <div class="span4 fit_fields" >
+          Start time (Hour : minute)
+        </div>
+
+        <div class="span4 fit_fields" >
+          End time (Hour : minute)
+        </div>
+
+        <div class="span4" >
+          Day of the week
+        </div>
+
+        <div class="span3" >
+          Rate
+        </div>
+
+      </div>
+
+      <%= pp.fields_for :pricing_rates do |pr| %>
+      <div class="row-fluid">
+
+
+        <div class="span4 fit_fields" >
+          <%= pr.time_select :start_time %>
+        </div>
+
+        <div class="span4 fit_fields" >
+          <%= pr.time_select :end_time %>
+        </div>
+
+        <div class="span4" >
+          <%= pr.enum_select :day_of_week, { }, { :class => 'span15' } %>
+        </div>
+
+        <div class="span3" >
+          <%= pr.text_field :hourly_rate, :placeholder =>"$35.00", :class => 'span15'%>
+        </div>
+
+      </div>
+      <% end %>
+
+      <%= pp.link_to_add "+ Add pricing rate", :pricing_rates, :class => 'btn click_on_que' %>
+    </div>
+
+    <div class="span5">
+      <p class="super-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie magna sed arcu dignissim gravida sit amet id odio. Sed tempor pellentesque nisi in semper. Morbi eu velit at nisi pulvinar cursus in id ligula.</p>
+    </div>
+
+  </div>
+  <br/>
+  <a href="javascript:void(0);" class="pricing_plan_click btn btn-mini" style="color: #444;"><i class="icon-arrow-up"></i> Switch to Simple Pricing</a>
+</div>
+
+<hr>
+
+<h5>Step 6: Premium Pricing</h5>
+
+<div class="row-fluid">
+  <div class="span10">
+    <%= pp.fields_for :pricing_rate_premiums do |prp| %>
+    <div class="row-fluid">
+      <div class="span5" >
+        <%= prp.select :skill, options_for_select(["Select a skill", "Legal", "Medical", "Music", "Theatrical", "Meeting", "Blind Deaf", "Limited Proficiency"]), { }, { :class => 'span15' } %>
+      </div>
+      <div class="span5" >
+        <%= prp.text_field :additional_amount, :placeholder =>"Additional amount eg: $10.00", :class => 'span15'%>
+      </div>
+    </div>
+    <% end %>
+    <%= pp.link_to_add "+ Add premium", :pricing_rate_premiums, :class => 'btn click ' %>
+  </div>
+  
+  <div class="span5">
+    <p class="super-small">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In molestie magna sed arcu dignissim gravida sit amet id odio. Sed tempor pellentesque nisi in semper. Morbi eu velit at nisi pulvinar cursus in id ligula.</p>
+  </div>
+</div>
+
+<% end %>
+
+<hr>
+<br />
+
+<label class="checkbox"><input type="checkbox" /> I have read and agree to the <a href="#">terms and conditions</a> for the use of this website.</label>
+          
+<br />
+
+<%= p.submit 'Sign Up', :class => 'btn btn-primary' %>
+<%= link_to "Cancel", registration_path(resource_name), :data => { :confirm => "Are you sure you want to cancel registration?" }, :method => :delete, :class => 'btn' %>
+
+<% end %>
+<br /><br />
+
+
+</div>
+<div class="span1">
+</div>  
+</div>

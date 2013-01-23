@@ -1,0 +1,117 @@
+<script type="text/javascript"> if(!window.location.hash){ window.location.hash = 'step1'; } </script>
+
+<div class="container" style="margin-top:70px;">
+
+ <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+
+ 
+
+ <h2 class="form-signin-heading">Sign Up</h2>
+
+ <% unless devise_error_messages!.empty? %>
+ <div id="errors" class="alert alert-error fade in">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <%= devise_error_messages! %>
+</div>
+<% end %>
+
+<span id="step1" class="step">
+
+
+
+
+  <%= f.email_field :email, :class=>"input-block-level required", :placeholder=>"Email address" %>
+  <%= f.password_field :password, :class=>"input-block-level required", :placeholder=>"Password" %>
+  <%= f.password_field :password_confirmation, :class=>"input-block-level required", :placeholder=>"Confirm Password" %>
+  <br/>
+
+
+
+  <a href="#step2" class="btn next">Lets get started</a> <%= link_to "Cancel", root_path, :class=>" " %><br/>
+  <br/><br/>
+  Have you already signed up? <%= link_to 'Login', new_user_session_path %>
+</span>
+
+<span id="step2" class="step">
+
+  <br/>
+
+  <h4>Are you an interpreter?</h4>
+
+  <button type="submit" name="roll" value="interpreter" class="btn" >Yes</button>
+
+  <a href="#step3" class="btn">No</a><br/>
+  
+  <br/>
+  <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue sapien, eget consectetur massa rutrum vel. </small>
+
+  <br/>
+
+</span>
+
+<span id="step3" class="step">
+  <br/>
+
+  <h4>Are you creating an account for personal use or for use on behalf of an organization?</h4>
+
+  <a href="#step4_p" class="btn">Personal Use</a> 
+
+  <a href="#step4_o" class="btn">Organization Use</a><br/>
+
+  <br/>
+  <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue sapien, eget consectetur massa rutrum vel. </small>
+
+  <br/>
+</span>
+
+<span id="step4_o" class="step">
+  <br/>
+
+  <h4>Are you the person responsible for the administration of the organization account for scheduling and payment of interpreter services?</h4>
+
+  <button type="submit" name="roll" value="client_admin" class="btn" >Yes</button> 
+
+  <a href="#step5" class="btn">No</a><br/>
+
+  <br/>
+  <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue sapien, eget consectetur massa rutrum vel. </small>
+
+  <br/>
+</span>
+
+<span id="step4_p" class="step">
+  <br/>
+
+  <h4>Are you deaf or hearing impaired and require the periodic use of interpreters?</h4>
+
+  <button type="submit" name="roll" value="deaf" class="btn" >Yes</button> 
+
+  <button type="submit" name="roll" value="client" class="btn" >No</button> 
+
+  <br/>
+  <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod congue sapien, eget consectetur massa rutrum vel. </small>
+
+  <br/>
+</span>
+
+<span id="step5" class="step">
+  <br/>
+
+  <h4>What is the name of your organization or the email of the administrator for your organization?</h4>
+
+  <input type="text" placeholder="Organization" ><br/>
+  <input type="email" placeholder="Email address" ><br/>
+  <a href="" class="btn">Search</a><br/>
+
+  <br/>
+  <small>The Deaf User Network is a network designed to meet the needs of deaf people </small>
+
+  <br/>
+</span>
+
+<% end %>
+
+
+
+
+</div> 

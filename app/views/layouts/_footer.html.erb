@@ -1,0 +1,37 @@
+<div id='footer_quicklinks'>
+    <ul>
+        <li>
+            FAQs
+        </li>
+        <li>
+            Plans & Pricing
+        </li>
+        <li>
+            Blog
+        </li>
+    </ul>
+</div>
+<div id='footer_contact'>
+    <i class='icon-phone'></i>&nbsp;928-771-8279
+</div>
+<div id='footer_email'>
+    <%= form_tag '/contact', :method => "get" do %>
+    <%= text_field 'name' %>
+    <%= text_field 'email' %>
+    <%= text_field 'comment' %>
+    <% end %>
+
+</div>
+<div id='footer_company'>
+        <ul>
+        <li>
+            About Us
+        </li>
+        <li>
+            Privacy Policy
+        </li>
+        <li>
+            Terms & Conditions
+        </li>
+    </ul>
+</div>

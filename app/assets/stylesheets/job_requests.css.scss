@@ -1,0 +1,51 @@
+
+
+.thin_call {
+	border-right: solid 1px #eee;
+	.prefs tr td { padding-right: 40px;}
+}
+
+.prefTable {
+	width: 100%;
+}
+table.selectable tr td { cursor:pointer;}
+table.table-hover thead tr:hover { background:none;}
+
+table.interpListing {
+	width: 100%;
+	height:90px;
+	padding-bottom:20px;
+	h3 {display: inline-block; font-weight: normal; }
+	.stars { display: inline-block; font-weight: bold; font-size: 20px; margin-top: 3px;}
+	tr td {padding-right: 10px;}
+	p { font-size: 11px;}
+	.imageFace img {border:1px solid #ccc}
+
+}
+
+legend {
+	margin-top: 40px;
+}
+
+legend.first{
+	margin-top: 0px;
+}
+
+#myModal form { margin-bottom: 0 0 0 0 ;}
+
+.sidebarinput {width:91%;}
+
+.pref_certs { overflow:hidden;  width: 470px;}
+.pref_certs label { display:block; float:left; width: 156px;}
+textarea { height:79px;}
+.time_select select, .time_select input { width:150px;}
+.yellow_color {color: #C09853;}
+
+#interp_listing {width: 800px; margin: -250px 0 0 -399px;}
+
+tr.text-hover {color:#468847;}
+tr:hover {background:#eee; }
+#interp_listing_body table tr { cursor:pointer; border-bottom: 1px solid #eee;}
+#interp_listing_body table tr:last-child { cursor:pointer; border-bottom: none;}
+tr.selected {}
+

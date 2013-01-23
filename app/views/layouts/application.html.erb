@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Deaf User Network" %></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= yield(:head) %>
+
+</head>
+<body>
+  <header class="navbar navbar-fixed-top">
+    <nav class="navbar-inner">
+      <div class="container-fluid">
+       <div class="row-fluid">
+        <div class="span10">
+          <%= link_to "Deaf User Network", root_path, :class => 'brand' %>
+        </div>
+        <div class="span5">
+          <%= render 'layouts/usernav' %>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+</header>
+<div id="main" role="main">
+
+  <div class="row-fluid">
+    <% if user_signed_in? %>
+    <% if current_user.has_role? :interpreter %>
+    <div class="bg-white">
+    <div class="span3" >
+      <div class="sidebar-nav full-height">
+        <%= render 'layouts/navigation' %>
+      </div>
+    </div>
+
+    <div class="span12 body ">
+
+    <% end %>
+    <% end %>
+
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+
+    <% if user_signed_in? %>
+    </div>
+    </div>
+    <% end %>
+  </div> 
+</body>
+</html>

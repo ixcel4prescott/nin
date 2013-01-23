@@ -1,0 +1,32 @@
+Nin
+========================
+
+Short Description
+========================
+
+This application has an intended use of providing a way to help people who need
+the services of an ASL ( American Sign Language ) interpreter.  It allows clients
+to search for interpreters in their area and attempts to bring possible matching
+interpreters to the aid of the client or deaf person.  This includes scheduling
+and payment for the interpreter.
+
+
+General Info
+========================
+This application was generated with the rails_apps_composer gem:
+https://github.com/RailsApps/rails_apps_composer
+provided by the RailsApps Project:
+http://railsapps.github.com/
+
+I am just testing
+________________________
+
+Recipes:
+["all", "auth", "controllers", "email", "extras", "frontend", "gems", "git", "init", "models", "railsapps", "readme", "routes", "setup", "testing", "views"]
+
+Preferences:
+{:railsapps=>"rails3-bootstrap-devise-cancan", :database=>"sqlite", :templates=>"erb", :unit_test=>"rspec", :integration=>"cucumber", :fixtures=>"factory_girl", :frontend=>"bootstrap", :bootstrap=>"sass", :email=>"gmail", :authentication=>"devise", :devise_modules=>"default", :authorization=>"cancan", :starter_app=>"admin_app", :form_builder=>"none"}
+
+________________________
+
+License

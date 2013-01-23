@@ -1,0 +1,29 @@
+<h2>Listing interpreters</h2>
+
+<table class="table table-striped">
+  <thead>
+    <th>Gender</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Languages</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+
+<% @interpreters.each do |interpreter| %>
+  <tr>
+    <td><%= interpreter.gender %></td>
+    <td><%= interpreter.first_name %></td>
+    <td><%= interpreter.last_name %></td>
+    <td><%= interpreter.preferred_language %></td>
+    <td><%= link_to 'show', interpreter, :class => "btn btn-mini " %></td>
+    <td><%= link_to 'edit', edit_interpreter_path(interpreter), :class => "btn btn-mini" %></td>
+    <td><%= link_to 'delete', interpreter, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-mini btn-danger" %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Interpreter', new_interpreter_path, :class => 'btn' %>

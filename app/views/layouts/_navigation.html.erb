@@ -1,0 +1,20 @@
+<% if user_signed_in? %>
+
+<ul class="nav nav-list">
+	<li class="nav-header">Jobs</li>
+	<li class=""><a href="#">Active Jobs</a></li>
+	<li><a href="#">Completed Jobs</a></li>
+	<li class="nav-header">Work Preferences</li>
+	<li><a href="#">Availability and Travel</a></li>
+	<li><a href="#">Black List</a></li>
+	<li><a href="#">VRI Settings</a></li>
+	<li class="nav-header">Account</li>
+	<li><a href="#">Account Settings</a></li>
+	<li><a href="#">Payment Settings</a></li>
+	<li><a href="#">Insurance Settings</a></li>
+	<li class="nav-header">For Dev</li>
+	<li><%= link_to 'Interpreters', interpreters_path %></li>
+	<li><%= link_to 'New Job Request', new_job_request_path %></li>
+</ul>
+
+<% end %>
