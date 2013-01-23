@@ -159,6 +159,7 @@ GEM
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
     orm_adapter (0.4.0)
+    pg (0.12.2)
     polyglot (0.3.3)
     puma (1.6.3)
       rack (~> 1.2)
@@ -302,7 +303,6 @@ DEPENDENCIES
   kaminari
   launchy (>= 2.1.2)
   less
-  linecache19 (>= 0.5.13)
   mime-types
   mini_magick
   money-rails
@@ -310,6 +310,7 @@ DEPENDENCIES
   oauth2
   omniauth (>= 1.0.0)
   omniauth-facebook (~> 1.4.0)
+  pg (= 0.12.2)
   puma (>= 1.6.1)
   rails (>= 3.2.7)
   rails_admin

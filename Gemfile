@@ -13,6 +13,9 @@ group :assets do
   gem 'execjs'
   gem 'therubyracer', :platform => :ruby
 end
+group :production do
+	gem 'pg', '0.12.2'
+end
 gem 'jquery-rails'
 gem "puma", ">= 1.6.1", :group => :production
 gem "rspec-rails", ">= 2.11.0", :group => [:development, :test]
@@ -29,7 +32,7 @@ gem "rolify", ">= 3.2.0"
 gem "yard", :group => [:development, :test]
 gem 'simplecov', :require => false, :group => :test
 gem 'awesome_print', :group => [:development]
-gem 'linecache19', '>= 0.5.13'
+#gem 'linecache19', '>= 0.5.13'
 gem 'ruby-debug-base19', '>= 0.11.25'
 gem 'ruby-debug-base19x', '>= 0.11.30.pre10'
 gem 'ruby-debug-ide', '>= 0.4.17.beta14'
