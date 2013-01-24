@@ -33,11 +33,11 @@ gem "yard", :group => [:development, :test]
 gem 'simplecov', :require => false, :group => :test
 gem 'awesome_print', :group => [:development]
 #gem 'linecache19', '>= 0.5.13'
-gem 'ruby-debug-base19', '>= 0.11.25'
-gem 'ruby-debug-base19x', '>= 0.11.30.pre10'
-gem 'ruby-debug-ide', '>= 0.4.17.beta14'
-gem 'ruby-debug19', '>= 0.11.6'
-gem 'ruby-prof'
+#gem 'ruby-debug-base19', '>= 0.11.25'
+#gem 'ruby-debug-base19x', '>= 0.11.30.pre10'
+#gem 'ruby-debug-ide', '>= 0.4.17.beta14'
+#gem 'ruby-debug19', '>= 0.11.6'
+#gem 'ruby-prof'
 ## Useful gems from other Mike projects
 gem "omniauth", ">= 1.0.0"
 gem 'omniauth-facebook', '~> 1.4.0'
