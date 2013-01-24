@@ -9,9 +9,9 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier'
-  gem 'less'
+ #gem 'less'
   gem 'execjs'
-# gem 'therubyracer', :platform => :ruby
+  gem 'therubyracer', :platform => :ruby
 end
 
 group :production do
