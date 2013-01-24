@@ -11,7 +11,7 @@ group :assets do
   gem 'uglifier'
   gem 'less'
   gem 'execjs'
-  gem 'therubyracer', :platform => :ruby
+# gem 'therubyracer', :platform => :ruby
 end
 
 group :production do
