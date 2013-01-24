@@ -13,9 +13,11 @@ group :assets do
   gem 'execjs'
   gem 'therubyracer', :platform => :ruby
 end
+
 group :production do
 	gem 'pg', '0.12.2'
 end
+
 gem 'jquery-rails'
 gem "puma", ">= 1.6.1", :group => :production
 gem "rspec-rails", ">= 2.11.0", :group => [:development, :test]
@@ -37,7 +39,7 @@ gem 'awesome_print', :group => [:development]
 #gem 'ruby-debug-base19x', '>= 0.11.30.pre10'
 #gem 'ruby-debug-ide', '>= 0.4.17.beta14'
 #gem 'ruby-debug19', '>= 0.11.6'
-#gem 'ruby-prof'
+gem 'ruby-prof'
 ## Useful gems from other Mike projects
 gem "omniauth", ">= 1.0.0"
 gem 'omniauth-facebook', '~> 1.4.0'
