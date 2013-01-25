@@ -55,4 +55,4 @@ gem 'mini_magick' # image manipulation
 gem 'geocoder' # autopopulate lat/lon from address, useful geo functions
 gem 'money-rails' # handle money math, formatting, conversions
 gem 'enumerated_attribute'  # easy enum types
-gem "debugger", :group => :production
+#gem "debugger", :group => :production
