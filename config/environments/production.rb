@@ -79,7 +79,8 @@ Nin::Application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
 
-
+config.log_level = :debug
+config.logger.level = Logger::debug 
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
