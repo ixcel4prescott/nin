@@ -33,7 +33,7 @@ gem 'simplecov', :require => false, :group => :test
 gem 'awesome_print', :group => [:development]
 #gem 'ruby-debug19', :require => false
 #gem 'ruby-debug-base19', :git => 'https://github.com/tribune/ruby-debug-base19.git', :require => false
-gem 'linecache19', :git => 'git@github.com:chuckg/linecache19.git', :branch => "0_5_13/dependencies", :require => false
+#gem 'linecache19', :git => 'git@github.com:chuckg/linecache19.git', :branch => "0_5_13/dependencies", :require => false
 #gem 'linecache19', '>= 0.5.13'
 gem 'ruby-debug-base19', '>= 0.11.25'
 gem 'ruby-debug-base19x', '>= 0.11.30.pre10'
