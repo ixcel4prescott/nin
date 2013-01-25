@@ -31,10 +31,10 @@ gem "rolify", ">= 3.2.0"
 gem "yard", :group => [:development, :test]
 gem 'simplecov', :require => false, :group => :test
 gem 'awesome_print', :group => [:development]
-#gem 'linecache19', '>= 0.5.13'
-#gem 'ruby-debug-base19', '>= 0.11.25'
-#gem 'ruby-debug-base19x', '>= 0.11.30.pre10'
-#gem 'ruby-debug-ide', '>= 0.4.17.beta14'
+gem 'linecache19', '>= 0.5.13'
+gem 'ruby-debug-base19', '>= 0.11.25'
+gem 'ruby-debug-base19x', '>= 0.11.30.pre10'
+gem 'ruby-debug-ide', '>= 0.4.17.beta14'
 gem 'ruby-debug19', '>= 0.11.6'
 gem 'ruby-prof'
 ## Useful gems from other Mike projects
@@ -52,4 +52,4 @@ gem 'mini_magick' # image manipulation
 gem 'geocoder' # autopopulate lat/lon from address, useful geo functions
 gem 'money-rails' # handle money math, formatting, conversions
 gem 'enumerated_attribute'  # easy enum types
-gem "debugger", :group => :production
+#gem "debugger", :group => :production
