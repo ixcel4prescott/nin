@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:chuckg/linecache19.git
+  revision: 22c91d747e469f751b0df594183f8f124b1e1b53
+  branch: 0_5_13/dependencies
+  specs:
+    linecache19 (0.5.13)
+      ruby_core_source (>= 0.1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -120,8 +128,6 @@ GEM
     launchy (2.1.2)
       addressable (~> 2.3)
     libv8 (3.11.8.13)
-    linecache19 (0.5.13)
-      ruby_core_source (>= 0.1.4)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -299,7 +305,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   launchy (>= 2.1.2)
-  linecache19 (>= 0.5.13)
+  linecache19!
   mime-types
   mini_magick
   money-rails
