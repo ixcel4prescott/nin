@@ -10,9 +10,10 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier'
  #gem 'less'
-  gem 'execjs'
-  gem 'therubyracer', :platform => :ruby
-end
+ # gem 'execjs'
+ # gem 'therubyracer'
+  #gem 'therubyracer', :platform => :ruby
+  end
 
 gem 'jquery-rails'
 gem "puma", ">= 1.6.1", :group => :production
