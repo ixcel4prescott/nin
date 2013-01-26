@@ -5,7 +5,6 @@ gem 'sqlite3', :group => [:development, :test]
 gem 'mysql2'
 gem 'pg', '0.12.2'
 
-
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -40,7 +39,7 @@ gem 'awesome_print', :group => [:development]
 #gem 'ruby-debug-ide', '>= 0.4.17.beta14'
 #gem 'ruby-debug19', '>= 0.11.6'
 gem 'ruby-prof'
-gem 'thin'
+#gem 'thin'
 ## Useful gems from other Mike projects
 gem "omniauth", ">= 1.0.0"
 gem 'omniauth-facebook', '~> 1.4.0'
