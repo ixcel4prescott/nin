@@ -3,7 +3,10 @@ gem 'rails', '>= 3.2.7'
 gem 'rake', '= 10.0.2'
 gem 'sqlite3', :group => [:development, :test]
 gem 'mysql2'
-gem 'pg', '0.12.2'
+
+group :production do
+ gem 'pg', '0.12.2'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
